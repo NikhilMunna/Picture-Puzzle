@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Puzzle game</title>
+	<style>
+		table , td {border: 1px solid black;border-collapse: collapse;padding:0px}
+		img {width:160px;height: 160px}
+	</style>
+	<script type="text/javascript">
+		var ps = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+		function randamize()
+		{
+			var i;
+			for(i=0;i<20;i++)
+			{
+				var num1 = Math.floor(Math.random()*16);
+				var num2 = Math.floor(Math.random()*16);
+				var temp = ps[num1];
+				ps[num1] = ps[num2];
+				ps[num2] = temp;
+			}
+		}
+		randamize();
+		function fill()
+		{
+			var temp = document.getElementById("table1").getElementsByTagName("img");
+			var i;
+			for(i=0;i<16;i++)
+			{
+				temp[i].src = "image_part_"+ ps[i] +".jpg";
+			}
+		}
+		function slide(n)
+		{
+			if(n < 15 & ps[n+1] == 1 & ((n+1)%4)!=0)
+			{
+				ps[n+1] = ps[n];
+				ps[n] = 1;
+			}
+			else if(n > 0 & ps[n-1] == 1 & (n%4)!=0)
+			{
+				ps[n-1] = ps[n];
+				ps[n] = 1;
+			}
+			else if(n > 3 & ps[n-4]==1)
+			{
+				ps[n-4] = ps[n];
+				ps[n] = 1;
+			}
+			else if(n < 12 & ps[n+4]==1)
+			{
+				ps[n+4] = ps[n];
+				ps[n] = 1;
+			}
+			fill();
+		}
+	</script>
+</head>
+<body onload="fill();">
+	<center>
+	<table name="game" id="table1">
+		<tr>
+			<td>
+				<img onclick="slide(0)">
+			</td>
+			<td>
+				<img onclick="slide(1)">
+			</td>
+			<td>
+				<img onclick="slide(2)">
+			</td>
+			<td>
+				<img onclick="slide(3)">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img onclick="slide(4)">
+			</td>
+			<td>
+				<img onclick="slide(5)">
+			</td>
+			<td>
+				<img onclick="slide(6)">
+			</td>
+			<td>
+				<img onclick="slide(7)">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img onclick="slide(8)">
+			</td>
+			<td>
+				<img onclick="slide(9)">
+			</td>
+			<td>
+				<img onclick="slide(10)">
+			</td>
+			<td>
+				<img onclick="slide(11)">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img onclick="slide(12)">
+			</td>
+			<td>
+				<img onclick="slide(13)">
+			</td>
+			<td>
+				<img onclick="slide(14)">
+			</td>
+			<td>
+				<img onclick="slide(15)">
+			</td>
+		</tr>
+	</table>
+	<button onclick="randamize();fill();">New Game!</button>
+</center>
+</body>
+</html>

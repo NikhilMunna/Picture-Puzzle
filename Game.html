@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Puzzle game</title>
+	<style>
+		table , td {border: 6px solid green;border-collapse: collapse;padding:0px}
+		h1 {color:red}
+		p {color:blue;font-size:45px}
+		
+		#randomize {font-size:20px;background-color:cyan;border-radius:15px;}
+		#change {font-size:20px;background-color:cyan;border-radius:15px;}
+	</style>
+	<script src="Puzzle.java">
+	</script>
+</head>
+<body onload="fill();" background="Resoruces/background.jpg">
+	<center>
+	<h1>Puzzle</h1>
+	<div style="float:right">
+		<img id="Dummy" border="5" style="border-color:red;" width="250" height="250"/>
+	</div>
+	<table name="game" id="table1">
+		<tr>
+			<td>
+				<img onclick="slide(0)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(1)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(2)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(3)" width="160" height="160">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img onclick="slide(4)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(5)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(6)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(7)" width="160" height="160">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img onclick="slide(8)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(9)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(10)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(11)" width="160" height="160">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img onclick="slide(12)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(13)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(14)" width="160" height="160">
+			</td>
+			<td>
+				<img onclick="slide(15)" width="160" height="160">
+			</td>
+		</tr>
+	</table>
+	<br /><br />
+	<button onclick="randamize();fill();" id="randomize">Randomize!</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<button onclick="ChangeR();randamize();fill();" id="change">Change Image</button>
+	<h1>More about the Picture</h1>
+	<p id="more"></p>
+</center>
+</body>
+</html>
